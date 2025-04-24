@@ -1,0 +1,103 @@
+:root {
+  /* Main color palette */
+  --primary-color: #3a5199;
+  --primary-light: #5a71b9;
+  --primary-dark: #1a3179;
+  --secondary-color: #e67e22;
+  --secondary-light: #f39c12;
+  --secondary-dark: #d35400;
+  --accent-color: #2ecc71;
+  --accent-light: #4cd787;
+  --accent-dark: #27ae60;
+
+  /* Neutral colors */
+  --text-color: #2c3e50;
+  --text-light: #7f8c8d;
+  --background-color: #ecf0f1;
+  --background-light: #f9f9f9;
+  --background-dark: #bdc3c7;
+
+  /* Board colors */
+  --board-color: #e6c88e;
+  --board-line: #333333;
+  --player-piece: #000000;
+  --computer-piece: #ffffff;
+  --highlight-color: rgba(231, 76, 60, 0.7);
+
+  /* Font settings */
+  font-family: 'Microsoft YaHei', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--background-color) 100%);
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+h2, h3 {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--accent-light);
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+}
