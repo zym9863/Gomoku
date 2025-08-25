@@ -41,17 +41,19 @@ const cellClass = computed(() => {
   cursor: pointer;
   background-color: transparent;
   box-sizing: border-box;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cell:hover.cell-empty::before,
 .cell:hover.cell-empty::after {
   background-color: var(--board-line);
-  opacity: 0.8;
+  opacity: 1;
+  box-shadow: 0 0 5px rgba(139, 69, 19, 0.3);
 }
 
 .cell:hover.cell-empty {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
 /* Create grid lines */
@@ -104,35 +106,47 @@ const cellClass = computed(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cell-player .piece {
-  background: radial-gradient(circle at 35% 35%, #333 0%, #000 60%);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5), inset 0 -2px 5px rgba(255, 255, 255, 0.2), inset 0 2px 5px rgba(0, 0, 0, 0.8);
+  background: radial-gradient(circle at 30% 30%, #444 0%, #000 70%);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.6), 
+    inset 0 -2px 6px rgba(255, 255, 255, 0.3), 
+    inset 0 2px 6px rgba(0, 0, 0, 0.9);
   border: 1px solid #000;
 }
 
 .cell-computer .piece {
-  background: radial-gradient(circle at 35% 35%, #fff 0%, #eee 60%);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3), inset 0 -2px 5px rgba(0, 0, 0, 0.1), inset 0 2px 5px rgba(255, 255, 255, 0.8);
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #e0e0e0 70%);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4), 
+    inset 0 -2px 6px rgba(0, 0, 0, 0.15), 
+    inset 0 2px 6px rgba(255, 255, 255, 0.9);
   border: 1px solid #ccc;
 }
 
 .last-move .piece {
-  box-shadow: 0 0 0 3px var(--highlight-color), 0 3px 5px rgba(0, 0, 0, 0.5);
-  animation: pulse 1.5s infinite;
+  box-shadow: 
+    0 0 0 3px var(--highlight-color), 
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(239, 68, 68, 0.4);
+  animation: pulseGlow 1.5s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 3px var(--highlight-color), 0 3px 5px rgba(0, 0, 0, 0.5);
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 0 3px var(--highlight-color), 
+      0 4px 8px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(239, 68, 68, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 5px var(--highlight-color), 0 3px 5px rgba(0, 0, 0, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 3px var(--highlight-color), 0 3px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+      0 0 0 5px var(--highlight-color), 
+      0 4px 8px rgba(0, 0, 0, 0.6),
+      0 0 30px rgba(239, 68, 68, 0.6);
   }
 }
 </style>
