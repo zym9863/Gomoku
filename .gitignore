@@ -28,3 +28,4 @@ dist-ssr
 *.d.ts
 !vite.config.ts
 !public/sw.js
+!src/vite-env.d.ts
