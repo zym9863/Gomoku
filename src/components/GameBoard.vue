@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed } from 'vue';
 import Cell from './Cell.vue';
 import {
   BOARD_SIZE,
-  EMPTY,
   PLAYER,
   COMPUTER,
   GameState,

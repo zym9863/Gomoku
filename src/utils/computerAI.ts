@@ -1,4 +1,4 @@
-import { BOARD_SIZE, EMPTY, PLAYER, COMPUTER, GameState, isValidMove } from './gameLogic';
+import { BOARD_SIZE, EMPTY, PLAYER, COMPUTER, GameState } from './gameLogic';
 
 // Get all valid moves
 function getValidMoves(state: GameState): [number, number][] {
