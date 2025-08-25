@@ -1,28 +1,43 @@
 :root {
-  /* Main color palette */
-  --primary-color: #3a5199;
-  --primary-light: #5a71b9;
-  --primary-dark: #1a3179;
-  --secondary-color: #e67e22;
-  --secondary-light: #f39c12;
-  --secondary-dark: #d35400;
-  --accent-color: #2ecc71;
-  --accent-light: #4cd787;
-  --accent-dark: #27ae60;
+  /* Main color palette - Enhanced for better visual appeal */
+  --primary-color: #4a5fc1;
+  --primary-light: #6b7fd6;
+  --primary-dark: #2a3f9a;
+  --secondary-color: #ff7b47;
+  --secondary-light: #ff9c73;
+  --secondary-dark: #e85a2b;
+  --accent-color: #34d399;
+  --accent-light: #6ee7b7;
+  --accent-dark: #10b981;
 
-  /* Neutral colors */
-  --text-color: #2c3e50;
-  --text-light: #7f8c8d;
-  --background-color: #ecf0f1;
-  --background-light: #f9f9f9;
-  --background-dark: #bdc3c7;
+  /* Neutral colors - More sophisticated palette */
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --text-lighter: #9ca3af;
+  --background-color: #f3f4f6;
+  --background-light: #ffffff;
+  --background-dark: #e5e7eb;
+  --background-darker: #d1d5db;
 
-  /* Board colors */
-  --board-color: #e6c88e;
-  --board-line: #333333;
-  --player-piece: #000000;
-  --computer-piece: #ffffff;
-  --highlight-color: rgba(231, 76, 60, 0.7);
+  /* Board colors - Enhanced wood texture colors */
+  --board-color: #deb887;
+  --board-gradient-start: #e6d2a3;
+  --board-gradient-end: #d4b07a;
+  --board-line: #8b4513;
+  --board-shadow: rgba(139, 69, 19, 0.3);
+  --player-piece: #1a1a1a;
+  --computer-piece: #f8f9fa;
+  --highlight-color: rgba(239, 68, 68, 0.8);
+  
+  /* New design tokens for enhanced visuals */
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 15px rgba(0, 0, 0, 0.12);
+  --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
 
   /* Font settings */
   font-family: 'Microsoft YaHei', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -40,7 +55,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--background-light) 0%, var(--background-color) 100%);
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--background-color) 40%, var(--background-dark) 100%);
 }
 
 h1 {
@@ -57,32 +72,49 @@ h2, h3 {
 }
 
 button {
-  border-radius: 6px;
+  border-radius: var(--border-radius);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.75em 1.5em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 600;
   font-family: inherit;
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 button:hover {
-  background-color: var(--accent-dark);
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-color) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-heavy);
 }
 
 button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-light);
 }
 
 button:focus,

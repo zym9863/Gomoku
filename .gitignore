@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# TypeScript compilation output
+*.js
+*.d.ts
+!vite.config.ts
+!public/sw.js
+!src/vite-env.d.ts
